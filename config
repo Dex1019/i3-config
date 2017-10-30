@@ -19,17 +19,16 @@ exec --no-startup-id xinput set-prop "SYNA2B33:00 06CB:8251" "Synaptics Two-Fing
 
 #start dmenu
 bindsym $mod+d exec dmenu_run
- 
-
-
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 3 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 3 # decrease screen brightness
 
-# startup
-exec_always --no-startup-id feh --bg-scale /home/prince/Pictures/macOS-Sierra-Wallpaper-Macbook-Wallpaper.jpg
+# startup-apps
+exec_always --no-startup-id feh --bg-scale /home/dex/Pictures/macOS-Sierra-Wallpaper-Macbook-Wallpaper.jpg
+
 exec_always --no-startup-id xrandr --output HDMI-1 --off --output eDP-1 --primary --mode 1366x768 --pos 0x0 --rotate normal
+exec --no-startup-id compton -f
 
 #screen lock
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
@@ -37,14 +36,14 @@ bindsym $mod+shift+x exec i3lock --color "$bg-color"
 #font
 font pango:System San Francisco Display 10
 
-# Volume
+# Vol ume
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 2dB+ unmute  #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 2dB- unmute  #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle  # mute sound
 
+#rofi application manager
 #bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
-bindsym Print exec gnome-screenshot
 
 #compton
 #exec_always compton -f
@@ -217,5 +216,12 @@ tray_output primary
 #touchpad 
 exec_always --no-startup-id xinput --set-prop "SYNA2B33:00 06CB:8251" "Synaptics Two-Finger Scrolling" 1 1
 
-#firefox
-#bindsym $mod+Shift+f firefox
+#key-binding
+bindsym Print exec gnome-screenshot
+bindsym $mod+z exec firefox
+bindsym $mod+x exec thunar
+bindsym $mod+c exec code
+bindsym $mod+n exec gnome-system-monitor
+bindsym $mod+m exec rhythmbox
+
+
